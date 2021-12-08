@@ -138,9 +138,19 @@ student_noura.GPA()
 
 #Teaching Assistant class (child class inheriting the Student and Teacher classes)
 class TeachingAssistant(Teacher,Student):
-      def __init__():
+  def m(self):
+    super().print_info()
+   
+#   pass
+# obj=TeachingAssistant()
+# obj.print_info()
+ 
+ 
+    # def __init__(self,id,name,universitynumber,email,level,numberofpoints,credit):
+    #     super().__init__(id,name,universitynumber,email,numberofpoints,credit)
+      # def __init__():
 
-           super().__init__
+      #      super().__init__
           
           
 
