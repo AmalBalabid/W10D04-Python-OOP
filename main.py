@@ -32,6 +32,10 @@ class Teacher(Univerity):
     def calculate_salary(self):
         return (self.number_of_teaching_hour*self.salary_per_hour)*30
 
+class Teacher_Assistant(Student,Teacher):
+    def __init__(self,student_one,teacher_one):
+        self.student_one=student_one
+        self.teacher_one=teacher_one
 
 student_one = Student(1,"Ali",1,"ali@a.com",4,20,10)
 print(student_one.personal_info())
@@ -40,3 +44,10 @@ print(student_one.calculate_gpa())
 teacher_one = Teacher(1,"Omar",1,"omar@o.com","CS",40,8)
 print(teacher_one.personal_info())
 print(teacher_one.calculate_salary())
+
+teacher_Assistant = Teacher_Assistant(student_one,teacher_one)
+print(teacher_Assistant.teacher_one.personal_info())
+print(teacher_Assistant.teacher_one.calculate_salary())
+
+print(teacher_Assistant.student_one.personal_info())
+print(teacher_Assistant.student_one.calculate_gpa())
