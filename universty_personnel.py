@@ -36,6 +36,8 @@ class universty_personnel:
 u_p = universty_personnel(437,"Saad",437000000,"salwu@###.edu.sa")
 u_p.set_university_email("test@gmail.com")
 print(u_p.Personal_Information())
+print("---------------------------------")
+
 
 # --------------- teacher class ------------------
 class teacher(universty_personnel):
@@ -72,3 +74,39 @@ class teacher(universty_personnel):
 
 teacher1 = teacher(437,"gg",437000000,"salwu@.edu.sa","math",100,8)
 print(teacher1.Personal_Information())
+print("---------------------------------")
+
+# --------------- students class ------------------
+class students(universty_personnel):
+    def __init__ (self ,id,name,university_id,university_email,level,number_of_points,credit):
+        super().__init__(id,name,university_id,university_email)
+        self.level=level
+        self.number_of_points=number_of_points
+        self.credit=credit
+    
+    def Personal_Information(self):
+        return f"{self.id} - {self.name} - {self.university_id} - {self.university_email} - {self.calculating_gpa()}"
+    
+    def set_level(self,level):
+        self.level=level
+        
+    def get_number_of_teaching_hours(self):
+        return self.number_of_teaching_hours
+
+    def set_number_of_points(self,number_of_points):
+        self.number_of_points=number_of_points
+        
+    def get_number_of_points(self):
+        return self.number_of_points
+
+    def set_credit(self,credit):
+        self.credit=credit
+        
+    def get_credit(self):
+        return self.credit
+    
+    def calculating_gpa(self):
+        return (self.credit) * (self.number_of_points)
+
+students1 = students(123,"John",3232,"johan@z.edu",4,10,2)
+print(students1.Personal_Information())
