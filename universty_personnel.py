@@ -39,8 +39,8 @@ print(u_p.Personal_Information())
 print("---------------------------------")
 
 
-# --------------- teacher class ------------------
-class teacher(universty_personnel):
+# --------------- Teacher class ------------------
+class Teacher(universty_personnel):
     def __init__ (self ,id,name,university_id,university_email,specialization,salary_per_hour,number_of_teaching_hours):
         super().__init__(id,name,university_id,university_email)
         self.specialization=specialization
@@ -72,12 +72,12 @@ class teacher(universty_personnel):
     def total_salary(self):
         return (self.get_salary_per_hour()) * (self.get_number_of_teaching_hours())
 
-teacher1 = teacher(437,"gg",437000000,"salwu@.edu.sa","math",100,8)
+teacher1 = Teacher(437,"gg",437000000,"salwu@.edu.sa","math",100,8)
 print(teacher1.Personal_Information())
 print("---------------------------------")
 
-# --------------- students class ------------------
-class students(universty_personnel):
+# --------------- Students class ------------------
+class Students(universty_personnel):
     def __init__ (self ,id,name,university_id,university_email,level,number_of_points,credit):
         super().__init__(id,name,university_id,university_email)
         self.level=level
@@ -108,5 +108,24 @@ class students(universty_personnel):
     def calculating_gpa(self):
         return (self.credit) * (self.number_of_points)
 
-students1 = students(123,"John",3232,"johan@z.edu",4,10,2)
+students1 = Students(123,"John",3232,"johan@z.edu",4,10,2)
 print(students1.Personal_Information())
+print("---------------------------------")
+
+# --------------- Teaching_Assistant class ------------------
+class Teaching_Assistant(Teacher,Students):
+    def __init__ (self ,teacher,students):
+        self.teacher=teacher
+        self.students=students
+#  for testing multi inherits
+#     def __init__ (self ,id,name,university_id,university_email,specialization,salary_per_hour,number_of_teaching_hours,level,number_of_points,credit):
+#         Teacher.__init__(self,id,name,university_id,university_email,specialization,salary_per_hour,number_of_teaching_hours)
+#         Students.__init__(self,id,name,university_id,university_email,level,number_of_points,credit)
+# Teaching_Assistantz1 = Teaching_Assistant(437,"gg",437000000,"salwu@.edu.sa","math",100,8,4,10,8)
+
+students2 = Students(436,"saad",43700,"SaadAl@z.edu",2,22,222)
+teacher2 = Teacher(437,"Saad",437000000,"Dr.Saad@edu.sa","math",100,8)
+
+Teaching_Assistantz1 = Teaching_Assistant(teacher2,students2)
+print(Teaching_Assistantz1.students.Personal_Information())
+print(Teaching_Assistantz1.teacher.Personal_Information())
